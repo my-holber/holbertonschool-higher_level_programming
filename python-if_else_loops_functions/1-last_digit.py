@@ -3,7 +3,7 @@ import random
 number = random.randint(-10000, 10000)
 
 # pour obtenir le dernier numéro
-if number < 0:
+if number >= 0:
     last_di = number % 10
 else:
     last_di = number % -10
