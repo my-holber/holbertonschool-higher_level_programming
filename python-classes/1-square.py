@@ -1,12 +1,16 @@
 #!/usr/bin/python3
-"""Commentaire principal qui décrit le fichier .py"""
+
 class Square:
-"""Commentaire pour décrire la class."""
+    """
+    This class represents a square.
+    """
+
     def __init__(self, size):
-        """_summary_
+        """
+        Initializes a Square object with a specified size.
 
         Args:
-            size (_type_): _description_
+            size (int): The size of the square.
         """
         self.__size = size
 
