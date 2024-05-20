@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """Commentaire principal
-qui décrit le fichier .py"""
+qui décrit le fichier .py
+fghjktyuio ghyjuiop ghjkl èuio , tyuio yuio yhjk  hjk
+uiobn,okflgorg kevpkgeg
+kerv ,kr,zfz,feàçgeigjegeoggr orgr   ei gj"""
 
 
 def add_integer(a, b=98):
