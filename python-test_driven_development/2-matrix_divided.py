@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 def matrix_divided(matrix, div):
     """
     Divides all elements of a matrix by a given divisor.
@@ -8,7 +10,8 @@ def matrix_divided(matrix, div):
         div (int/float): The divisor.
 
     Returns:
-        list: A new matrix with all elements divided by div, rounded to 2 decimal places.
+        list: A new matrix with all elements divided by div,
+        rounded to 2 decimal places.
 
     Raises:
         TypeError: If matrix elements are not lists of integers/floats,
@@ -42,4 +45,3 @@ def matrix_divided(matrix, div):
     new_matrix = [[round(elem / div, 2) for elem in row] for row in matrix]
 
     return new_matrix
-
