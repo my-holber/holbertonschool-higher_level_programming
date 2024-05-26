@@ -1,43 +1,42 @@
 #!/usr/bin/python3
 """
-    Определяет прямоугольник
+    File for the class Rectangle.
 """
 
 
 class Rectangle:
     """
-    Класс прямоугольника
+        Rectangle class
     """
-
     def __init__(self, width=0, height=0):
-        """Инициализация прямоугольника"""
+        """init for Rectangle"""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Геттер ширины прямоугольника"""
+        """Get the width of the rectangle"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Сеттер ширины прямоугольника"""
-        if type(value) != int:
-            raise TypeError("ширина должна быть целым числом")
+        """Set the width of the rectangle"""
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError("ширина должна быть >= 0")
+            raise ValueError("width must be >= 0")
         self.__width = value
 
     @property
     def height(self):
-        """Геттер высоты прямоугольника"""
+        """Get the height of the rectangle"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Сеттер высоты прямоугольника"""
-        if type(value) != int:
-            raise TypeError("высота должна быть целым числом")
+        """Set the height of the rectangle"""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError("высота должна быть >= 0")
+            raise ValueError("height must be >= 0")
         self.__height = value
