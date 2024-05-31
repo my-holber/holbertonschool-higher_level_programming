@@ -1,52 +1,43 @@
-#!/usr/bin/python3
-"""
-    Function file for Server http.server.
-"""
-from http.server import BaseHTTPRequestHandler, HTTPServer
+.venv/bin/activate
+from flask import Flask, jsonify
 import json
+from flask import request
 
 
-class Server(BaseHTTPRequestHandler):
-    def do_GET(self):
-        """ Handle GET requests. """
-        if self.path == "/":
-            self.send_response(200)
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!")
+app = Flask(__name__)
+users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
 
-        elif self.path == "/data":
-            self.send_response(200)
-            self.send_header("Content-type", "application/json")
-            self.end_headers()
 
-            data = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(json.dumps(data).encode())
+@app.route('/')
+def hello():
+    return 'Welcome to the Flask API!'
 
-        elif self.path == "/status":
-            self.send_response(200)
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
-            self.wfile.write(b"OK")
 
-        elif self.path == "/info":
-            self.send_response(200)
-            self.send_header("Content-type", "application/json")
-            self.end_headers()
+@app.route('/data')
+def data():
+    return jsonify(list(users.keys()))
 
-            data = {
-                    "version": "1.0",
-                    "description": "A simple API built with http.server"
-            }
-            self.wfile.write(json.dumps(data).encode())
 
-        else:
-            self.send_error(404, "Endpoint not found")
+@app.route('/status')
+def status():
+    return 'OK'
+
+
+@app.route('/users/<username>')
+def show_user(username):
+    return jsonify(users[username])
+
+
+@app.route('/add_user', methods=['POST'])
+def add_user():
+    data = request.get_json()
+    username = data['username']
+    users[username] = data
+    return jsonify({
+        "message": "User added",
+        "user": data
+    }), 201
 
 
 if __name__ == "__main__":
-    HOSTNAME = ""
-    PORT = 8000
-    server = HTTPServer((HOSTNAME, PORT), Server)
-    print(f'Server started at port {PORT}...')
-    server.serve_forever()
+    app.run()
