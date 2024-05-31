@@ -1,43 +1,46 @@
-.venv/bin/activate
-from flask import Flask, jsonify
+#!/usr/bin/python3
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
-from flask import request
 
 
-app = Flask(__name__)
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+HOSTNAME = "localhost"
+PORT = 8000
 
 
-@app.route('/')
-def hello():
-    return 'Welcome to the Flask API!'
+class Server(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == "/":
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(bytes(
+                "Hello, this is a simple API!", encoding='utf8'))
 
+        elif self.path == "/data":
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
 
-@app.route('/data')
-def data():
-    return jsonify(list(users.keys()))
+            data = {"name": "John", "age": 30, "city": "New York"}
+            self.wfile.write(bytes(json.dumps(data), encoding='utf8'))
 
+        elif self.path == "/info":
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
 
-@app.route('/status')
-def status():
-    return 'OK'
+            data = {
+                    "version": "1.0",
+                    "description": "A simple API built with http.server"
+            }
+            self.wfile.write(bytes(json.dumps(data), encoding='utf8'))
 
-
-@app.route('/users/<username>')
-def show_user(username):
-    return jsonify(users[username])
-
-
-@app.route('/add_user', methods=['POST'])
-def add_user():
-    data = request.get_json()
-    username = data['username']
-    users[username] = data
-    return jsonify({
-        "message": "User added",
-        "user": data
-    }), 201
+        else:
+            self.send_response(404)
+            self.end_headers()
+            self.wfile.write(bytes("Endpoint not found", encoding='utf8'))
 
 
 if __name__ == "__main__":
-    app.run()
+    server = HTTPServer((HOSTNAME, PORT), Server)
+    print(f'Server started at port {PORT}...')
+    server.serve_forever()
