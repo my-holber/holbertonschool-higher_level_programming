@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-""" Module that contains a function that reads from a file """
+"""
+    File function for append_write().
+"""
 
 
 def append_write(filename="", text=""):
-    """ Function that appends to a text file
-
-    Args:
-        filename: filename
-        text: text to write
-
-    Raises
-        Exception: when the file can be opened
-
     """
-
-    with open(filename, 'a', encoding='utf-8') as file:
-        return file.write(text)
+        Appends a string at the end and returns number of characters added.
+        Arguments:
+            filename (str): File to write.
+            text (str): Text to add.
+    """
+    count = 0
+    with open(filename, "a", encoding="utf-8") as f:
+        count = f.write(text)
+    return count
