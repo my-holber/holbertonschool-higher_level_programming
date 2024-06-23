@@ -1,6 +1,10 @@
-import sys
+#!/usr/bin/python3
+"""
+    Script that lists all states from the database.
+"""
 import MySQLdb
-k  # !/usr/bin/python3
+import sys
+
 
 if __name__ == "__main__":
     db = MySQLdb.connect(
