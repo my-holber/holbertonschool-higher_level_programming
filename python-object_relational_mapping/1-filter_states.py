@@ -28,13 +28,9 @@ def list_states_with_n(username, password, database):
     for state in states:
         print(state)
 
-        # Close the cursor and database connection
-        cursor.close()
-        db.close()
-
-    except MySQLdb.Error as e:
-        print("Error connecting to MySQL database:", e)
-        sys.exit(1)
+    # Close the cursor and database connection
+    cursor.close()
+    db.close()
 
 
 if __name__ == "__main__":
