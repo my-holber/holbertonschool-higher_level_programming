@@ -7,26 +7,26 @@ import sys
 
 
 def list_states_with_n(username, password, database):
-    try:
-        # Connect to MySQL database
-        db = MySQLdb.connect(
-            host='localhost',
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database)
-        cursor = db.cursor()
 
-        # Execute the query
-        cursor.execute(
-            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    # Connect to MySQL database
+    db = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database)
+    cursor = db.cursor()
 
-        # Fetch all rows
-        states = cursor.fetchall()
+    # Execute the query
+    cursor.execute(
+        "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
-        # Print the results
-        for state in states:
-            print(state)
+    # Fetch all rows
+    states = cursor.fetchall()
+
+    # Print the results
+    for state in states:
+        print(state)
 
         # Close the cursor and database connection
         cursor.close()
