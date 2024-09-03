@@ -7,3 +7,4 @@ elif number == 0:
     print(f'{number} is zero\n')
 if number < 0:
     print(f'{number} is negative\n')
+    
