@@ -2,4 +2,5 @@
 for i in range(100):
     if i < 99:
         print('{0:2}'.format(i), end=', ')
-    else:print('{0:2}'.format(i))
+    else:
+        print('{0:2}'.format(i))
