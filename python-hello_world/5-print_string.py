@@ -1,3 +1,5 @@
 #!/usr/bin/python3
 str = "Holberton School"
-print(f"{str*3}\n{str[:9]}")
+for i in range(3):
+    print(str, end='')
+print('\nHolberton')
