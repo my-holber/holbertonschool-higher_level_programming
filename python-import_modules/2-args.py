@@ -8,9 +8,9 @@ if __name__ == '__main__':
     if _len == 0:
         print('{} arguments.'.format(_len))
     elif _len == 1:
-        print('{} arguments:'.format(_len))
+        print('{} argument:'.format(_len))
     else:
-        print(f"{_len} arguments:")
+        print('{} arguments:'.format(_len))
 
     for i in range(1, len(argv)-1):
-        print(f"{i}: {argv[i]}")
+        print("{}: {}".format(i, argv[i]))
