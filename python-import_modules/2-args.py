@@ -13,4 +13,4 @@ if __name__ == '__main__':
         print(f"{_len} arguments:")
 
     for i in range(1, len(argv)-1):
-        print(i, argv[i])
+        print(f"{i}: {argv[i]}")
