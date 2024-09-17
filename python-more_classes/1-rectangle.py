@@ -6,7 +6,7 @@ This is class Square that defines a square
 
 class Rectangle():
     """
-    Return: a empty class square
+    Class that defines a rectangle by width and height.
     """
     def __init__(self, width=0, height=0):
         self.width = width
