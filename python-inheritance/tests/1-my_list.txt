@@ -38,3 +38,7 @@ Test Valid
 
     >>> print(my_list)
     [1, 4, 2, 3, 5]
+
+    >>> my_list.append(-4)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5, -4]
