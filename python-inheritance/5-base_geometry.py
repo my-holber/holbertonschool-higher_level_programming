@@ -5,7 +5,7 @@
 
 
 class BaseGeometry():
-        """
+    """
         Class based on geometry.
-        """
-        pass
+    """
+    pass
