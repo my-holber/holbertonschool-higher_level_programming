@@ -5,7 +5,6 @@
 
 
 class BaseGeometry():
-    def __init__(self):
         """
         Class based on geometry.
         """
