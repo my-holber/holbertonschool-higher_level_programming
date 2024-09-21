@@ -4,9 +4,9 @@ This line tells the system to use Python 3 to run this script
 """
 
 
-def is_same_class(obj, a_class):
+def inherits_from(obj, a_class):
     """
-        Check if object if exactly an instance of the specified class.
+        Check if object if an instance of the specified inherited class.
 
         Arguments:
             obj (class): Class to test.
@@ -14,4 +14,4 @@ def is_same_class(obj, a_class):
         Return:
             (bool) Resultat.
     """
-    return type(obj) is a_class
+    return type(obj) is not a_class
