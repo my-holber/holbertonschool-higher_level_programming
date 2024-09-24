@@ -27,9 +27,3 @@ class Rectangle(BaseGeometry):
         """ Returns the string representation of the rectangle. """
         return f"[Rectangle] {self.__width}/{self.__height}"
 
-
-# Example usage
-r = Rectangle(3, 5)
-
-print(r)         # Output: [Rectangle] 3/5
-print(r.area())  # Output: 15
