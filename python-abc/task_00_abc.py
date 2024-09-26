@@ -6,19 +6,19 @@ from abc import abstractmethod
 class Animal(ABC):
     def __init__(self) -> None:
         super().__init__()
-    
+
     @abstractmethod
     def sound(self):
-        raise TypeError(" Can't instantiate abstract class Animal with abstract method sound")
+        raise TypeError("Can't instantiate abstract class\
+                        Animal with abstract method sound")
 
 
 class Dog(Animal):
     def __init__(self) -> None:
         super().__init__()
 
-
     def sound(self):
-        return "Bark" 
+        return "Bark"
 
 
 class Cat(Animal):
@@ -26,4 +26,4 @@ class Cat(Animal):
         super().__init__()
 
     def sound(self):
-        return "Meow"  
+        return "Meow"
