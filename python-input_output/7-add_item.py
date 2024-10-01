@@ -12,7 +12,7 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
 '''Загружаем существующие элементы или создаем пустой список'''
-if os.path.exists('add_item'):
+if os.path.exists(filename):
     items = load_from_json_file(filename)
 else:
     items = []
