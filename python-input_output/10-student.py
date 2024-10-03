@@ -10,18 +10,19 @@ class Student:
 
     def to_json(self, attrs=None):
         '''
-        eturns a dictionary with attributes of the Student object.
-        If a list of attrs strings is passed,
-        only those attributes whose names are
-        specified in this list are returned.
-        If attrs is not passed, all attributes of the object are returned.
+        Возвращает словарь с атрибутами объекта Student.
+        Если передан список строк attrs, то возвращаются только те атрибуты, имена которых указаны в этом списке.
+        Если attrs не передан, возвращаются все атрибуты объекта.
         '''
-
         if attrs is None:
+            # Возвращаем все атрибуты объекта в виде словаря
             return self.__dict__
-
+        
         new_dict = {}
+        # Перебираем переданные атрибуты
         for attr in attrs:
+            # Проверяем, существует ли атрибут у объекта
             if hasattr(self, attr):
+                # Получаем значение атрибута с помощью getattr и добавляем в новый словарь
                 new_dict[attr] = getattr(self, attr)
         return new_dict
