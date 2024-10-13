@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 
-import http.server
 import json
-import socket
-from http.server import HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
-class MyHandler(http.server.BaseHTTPRequestHandler):
+class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             print(self.path)
