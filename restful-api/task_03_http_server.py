@@ -5,16 +5,6 @@ import json
 import socket
 from http.server import HTTPServer
 
-
-def get_local_ip():
-    hostname = socket.gethostname()
-    local_ip = socket.gethostbyname(hostname)
-    return local_ip
-
-
-print(get_local_ip())
-
-
 class MyHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
