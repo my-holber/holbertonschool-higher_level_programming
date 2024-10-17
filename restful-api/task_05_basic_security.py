@@ -8,17 +8,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-# Секретный ключ для создания JWT токенов
-app.config['JWT_SECRET_KEY'] = 'supersecretkey'  # Замените на ваш секретный ключ
 
-jwt = JWTManager(app)  # Инициализация JWT менеджера
+app.config['JWT_SECRET_KEY'] = 'supersecretkey'
 
-# Пользователи и пароли
+jwt = JWTManager(app)
+
 users = {
-    "user1": {"username": "user1", "password": generate_password_hash("1234"), "role": "user"},
-    "admin1": {"username": "admin1", "password": generate_password_hash("4524"), "role": "admin"}
+    "user1": {"username": "user1", "password": generate_password_hash("password"), "role": "user"},
+    "admin1": {"username": "admin1", "password": generate_password_hash("password"), "role": "admin"}
 }
-
 
 # Basic Auth защищённый маршрут
 @app.route('/basic-protected', methods=['GET'])
