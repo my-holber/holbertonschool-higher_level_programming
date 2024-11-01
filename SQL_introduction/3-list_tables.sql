@@ -1,2 +1,2 @@
--- AFFICHER LES TABLEAUX
-SHOW TABLES FROM hbtn_0c_0;
+-- lists all the tables of a database
+SHOW TABLES;
