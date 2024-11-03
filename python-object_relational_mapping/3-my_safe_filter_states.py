@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-    Script that lists all states from the database where the name matches the given argument.
+    Script that lists all states from the database where the
+    name matches the given argument.
     The script is safe from SQL injections.
 """
 import MySQLdb
@@ -17,7 +18,7 @@ if __name__ == '__main__':
     )
     name = sys.argv[4]
     cursor = conn.cursor()
-    
+
     # Подготовка запроса с защитой от SQL-инъекций
     query = (
         "SELECT states.id, states.name "
@@ -25,7 +26,7 @@ if __name__ == '__main__':
         "WHERE states.name LIKE BINARY %s "
         "ORDER BY states.id ASC"
     )
-    
+
     # Передача параметра как кортежа из одного элемента
     cursor.execute(query, (name,))
 
@@ -33,8 +34,7 @@ if __name__ == '__main__':
     rows = cursor.fetchall()
     for row in rows:
         print(row)
-    
+
     # Закрытие курсора и подключения
     cursor.close()
     conn.close()
-
