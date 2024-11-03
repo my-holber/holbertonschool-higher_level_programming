@@ -5,20 +5,19 @@
 import MySQLdb
 import sys
 
-
-conn = MySQLdb.connect(
-    host='localhost',
-    user=sys.argv[1],
-    passwd=sys.argv[2],
-    db=sys.argv[3],
-    port=3306
-)
-
 if __name__ == '__main__':
+    conn = MySQLdb.connect(
+        host='localhost',
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        port=3306
+        )
+
     cursor = conn.cursor()
     cursor.execute('''
-                   SELECT states.id, states.name 
-                   FROM states 
+                   SELECT states.id, states.name
+                   FROM states
                    ORDER BY states.id ASC
                    ''')
     rows = cursor.fetchall()
