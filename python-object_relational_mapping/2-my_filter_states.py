@@ -16,12 +16,7 @@ if __name__ == '__main__':
 
     name = sys.argv[4]
     cursor = conn.cursor()
-    cursor.execute("""
-                    SELECT * FROM states
-                    WHERE name LIKE BINARY '{}' ORDER BY states.id".format(name)
-                    """)
-    
-
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id".format(name))
     rows = cursor.fetchall()
     for i in rows:
         print(i)
