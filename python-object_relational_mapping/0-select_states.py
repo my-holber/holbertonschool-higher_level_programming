@@ -14,10 +14,13 @@ conn = MySQLdb.connect(
     port=3306
 )
 
-
 if __name__ == '__main__':
     cursor = conn.cursor()
-    cursor.execute('SELECT states.id, states.name FROM states')
+    cursor.execute('''
+                   SELECT states.id, states.name 
+                   FROM states 
+                   ORDER BY states.id ASC
+                   ''')
     rows = cursor.fetchall()
     for i in rows:
         print(i)
